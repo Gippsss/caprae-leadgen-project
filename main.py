@@ -1,18 +1,17 @@
 # main.py
 import os
-import argparse
-from enrich import enrich_from_csv
+import pandas as pd
+from enrich import enrich_from_csv  # keep your existing enrichment logic
 
-def main():
-    parser = argparse.ArgumentParser(description="Caprae LeadGen Enrichment Tool")
-    parser.add_argument('--input', required=True, help='Path to input CSV with column "domain"')
-    parser.add_argument('--output', default='output/enriched.csv', help='Path to save output CSV')
-    args = parser.parse_args()
+def run_leadgen(input_file):
+    """
+    Processes the CSV using enrich_from_csv and returns a DataFrame
+    along with the output CSV path.
+    """
+    output_path = "output/enriched.csv"
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
-    os.makedirs(os.path.dirname(args.output), exist_ok=True)
-    df = enrich_from_csv(args.input, args.output)
-    print("\n✅ Enrichment complete! Saved to", args.output)
-    print(df.head())
+    # Run your existing enrichment function
+    df = enrich_from_csv(input_file, output_path)
 
-if __name__ == "__main__":
-    main()
+    return df, output_path  # return both DataFrame and CSV path
