@@ -55,17 +55,17 @@ cd caprae-leadgen-project
 ```
 
 **###2. Set up the Virtual Environment**
-python -m venv venv
+```python -m venv venv ```
 # Windows
-venv\Scripts\activate
+```venv\Scripts\activate```
 # Mac/Linux
-source venv/bin/activate
+```source venv/bin/activate```
 
 **###3. Install Dependencies**
-pip install -r requirements.txt
+```pip install -r requirements.txt```
 
 **###4. Run Locally**
-streamlit run app.py
+```streamlit run app.py```
 
 Open the URL provided in the terminal (usually http://localhost:8501) to use the app.
 
