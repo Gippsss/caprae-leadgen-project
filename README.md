@@ -1,6 +1,6 @@
 Caprae LeadGen Enrichment Tool
 
-This Python-based automation tool enriches and processes startup datasets, such as YC company lists. It extracts valuable information, including founder names, websites, industries, and hiring statuses.
+This Python-based automation tool enriches and processes startup datasets, such as YC company lists. It extracts valuable information, including founder names, websites, industries, and hiring statuses. 
 **-----Features**
 Automated Processing: Efficiently handles thousands of startup entries from CSV files.
 Data Quality: Cleans, enriches, and validates company data.
