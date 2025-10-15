@@ -1,18 +1,101 @@
-Caprae LeadGen Enrichment Tool
+# 🚀 Caprae LeadGen Project
 
-This Python-based automation tool enriches and processes startup datasets, such as YC company lists. It extracts valuable information, including founder names, websites, industries, and hiring statuses. 
-**-----Features**
-Automated Processing: Efficiently handles thousands of startup entries from CSV files.
-Data Quality: Cleans, enriches, and validates company data.
-Active Company Filtering: Filters for only active companies with valid websites.
-Structured Export: Exports enriched data to a structured CSV format for lead generation.
-Error Handling: Gracefully manages network timeouts and website errors.
-**-----Tech Stack**
-Language: Python 3.x
-Libraries: pandas, requests, BeautifulSoup, tqdm
-Output Format: CSV
-Version Control: Git & GitHub
-**-----Setup Instructions**
-Clone the repository:
+A lead generation and enrichment tool that extracts, scores, and analyzes potential leads from company domains. Built in Python with Streamlit for a **user-friendly web interface**.
+
+[**Live Demo on Streamlit Cloud**](https://gippsss-caprae-leadgen-project-app-onnuig.streamlit.app/)  
+
+---
+
+## 📝 Project Overview
+
+Caprae LeadGen helps sales and marketing teams identify high-quality leads by:  
+- Extracting emails from company websites  
+- Identifying relevant contact pages  
+- Inferring the company industry  
+- Scoring leads based on actionable metrics  
+
+This tool is designed to **save time** and **prioritize high-impact leads**, aligning closely with real business needs.
+
+---
+
+**## ⚡ Features**
+
+- ✅ Upload a CSV of company domains (`website` column required)  
+- ✅ Automated extraction of emails and contact links  
+- ✅ Industry inference (SaaS, Marketplace, Services)  
+- ✅ Lead scoring (0–100) based on real enrichment metrics  
+- ✅ Parallel processing for faster performance  
+- ✅ Download enriched CSV directly from the web app  
+- ✅ Adjustable number of threads for optimal speed  
+
+---
+
+**## 📁 Folder Structure**
+CAPRAE-LEADGEN-PROJECT/
+│
+├─ app.py # Streamlit front-end
+├─ main.py # Core processing logic
+├─ enrich.py # Lead enrichment functions
+├─ yc_companies.csv # Example input CSV
+├─ requirements.txt # Project dependencies
+├─ README.md
+├─ output/ # Enriched CSVs
+└─ venv/ # Python virtual environment
+
+---
+
+## 🚀 Getting Started
+
+
+### 1. **Clone the Repository**
+
+```bash
 git clone https://github.com/Gippsss/caprae-leadgen-project.git
 cd caprae-leadgen-project
+```
+
+**###2. Set up the Virtual Environment**
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# Mac/Linux
+source venv/bin/activate
+
+**###3. Install Dependencies**
+pip install -r requirements.txt
+
+**###4. Run Locally**
+streamlit run app.py
+
+Open the URL provided in the terminal (usually http://localhost:8501) to use the app.
+
+**📄 Usage Instructions**
+Upload a CSV file containing a website column with company domains.
+Preview your input data in the Streamlit app.
+Set the number of parallel threads for faster processing (default = 10).
+Click "Run Lead Generation Tool" to start enrichment.
+View the enriched results and download the CSV.
+
+**🔧 Technology Stack**
+Python 3.10+
+Streamlit (Web interface)
+Pandas (Data handling)
+Requests & BeautifulSoup4 (Web scraping)
+Concurrent Futures (Parallel processing)
+
+**⚡ Notes & Recommendations**
+Ensure your input CSV column is named website exactly.
+Large CSVs with many domains may take several minutes; increase Max parallel threads for faster results.
+All processing is performed in-memory; no temporary files are required.
+
+**📈 Future Enhancements**
+Add enrichment from social media profiles (LinkedIn, Twitter)
+Integrate with CRM systems for direct lead export
+Implement caching for repeated domain checks to speed up processing
+Add more sophisticated lead scoring based on company size, traffic, or tech stack
+
+**📞 Contact**
+For questions or collaborations, reach out via email: [gurupreethikasayala@gmail.com]
+LinkedIn profile: https://www.linkedin.com/in/guru-preethika-sayala/
+
+---
