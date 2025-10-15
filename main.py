@@ -1,17 +1,14 @@
 # main.py
-import os
 import pandas as pd
-from enrich import enrich_from_csv  # keep your existing enrichment logic
+from enrich import enrich_from_csv
 
-def run_leadgen(input_file):
+def run_leadgen(df_input):
     """
-    Processes the CSV using enrich_from_csv and returns a DataFrame
-    along with the output CSV path.
+    Processes a DataFrame (from uploaded CSV) and returns the enriched DataFrame.
+    Completely in-memory; no temp files required.
     """
-    output_path = "output/enriched.csv"
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    # Assume enrich_from_csv can accept a DataFrame instead of a file path
+    # If your current enrich_from_csv only accepts file paths, we can create a wrapper
+    enriched_df = enrich_from_csv(df_input)
 
-    # Run your existing enrichment function
-    df = enrich_from_csv(input_file, output_path)
-
-    return df, output_path  # return both DataFrame and CSV path
+    return enriched_df
