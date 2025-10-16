@@ -76,6 +76,8 @@ Set the number of parallel threads for faster processing (default = 10).
 Click "Run Lead Generation Tool" to start enrichment.
 View the enriched results and download the CSV.
 
+---
+
 #**🔧 Technology Stack**
 Python 3.10+
 Streamlit (Web interface)
@@ -83,10 +85,14 @@ Pandas (Data handling)
 Requests & BeautifulSoup4 (Web scraping)
 Concurrent Futures (Parallel processing)
 
+---
+
 #**⚡ Notes & Recommendations**
 Ensure your input CSV column is named website exactly.
 Large CSVs with many domains may take several minutes; increase Max parallel threads for faster results.
 All processing is performed in-memory; no temporary files are required.
+
+---
 
 #**⚙️ Performance & Scalability Notes**
 
@@ -119,6 +125,8 @@ System Specs	Recommended Threads	Timeout
 4 GB RAM, Dual Core	8–10	20s
 8 GB RAM, Quad Core	20	25s
 16+ GB RAM, 6+ Cores	30–35	30s
+
+---
 
 #**📈 Future Enhancements**
 Add enrichment from social media profiles (LinkedIn, Twitter)
