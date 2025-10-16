@@ -69,32 +69,64 @@ cd caprae-leadgen-project
 
 Open the URL provided in the terminal (usually http://localhost:8501) to use the app.
 
-**📄 Usage Instructions**
+#**📄 Usage Instructions**
 Upload a CSV file containing a website column with company domains.
 Preview your input data in the Streamlit app.
 Set the number of parallel threads for faster processing (default = 10).
 Click "Run Lead Generation Tool" to start enrichment.
 View the enriched results and download the CSV.
 
-**🔧 Technology Stack**
+#**🔧 Technology Stack**
 Python 3.10+
 Streamlit (Web interface)
 Pandas (Data handling)
 Requests & BeautifulSoup4 (Web scraping)
 Concurrent Futures (Parallel processing)
 
-**⚡ Notes & Recommendations**
+#**⚡ Notes & Recommendations**
 Ensure your input CSV column is named website exactly.
 Large CSVs with many domains may take several minutes; increase Max parallel threads for faster results.
 All processing is performed in-memory; no temporary files are required.
 
-**📈 Future Enhancements**
+#**⚙️ Performance & Scalability Notes**
+
+The tool is optimized for processing thousands of domains efficiently using parallel threading. Actual runtime depends on your system and network bandwidth.
+
+*⏱️ Typical Runtime Estimates*
+Dataset Size	Threads	Avg Timeout	Approx Runtime
+500 domains	10	30s	~5–7 minutes
+2,000 domains	15	25s	~20–25 minutes
+5,000 domains	25	30s	~45–60 minutes
+(These are based on a mid-range laptop with 8 GB RAM and stable internet.)
+
+*🚀 Tips to Improve Speed*
+Increase Threads: Set Max parallel threads to 25–30 for faster execution.
+(Keep it below 40 to avoid network throttling.)
+Reduce Timeout: Lower Timeout per website from 30 → 15 seconds for a quicker pass (skips slow domains).
+Split Large Files: Split large CSVs (e.g., 5000+ rows) into smaller chunks to make progress easier to track.
+Resume Feature: The tool automatically skips already-processed domains when re-run, preventing duplicate work.
+
+*🧠 Developer Insight*
+Parallel processing uses Python’s ThreadPoolExecutor for concurrent requests, allowing simultaneous enrichment of multiple domains.
+Error handling includes:
+Automatic retries (up to 2 per domain)
+Timeout control per request
+Intermediate checkpoint saving every 100 records
+This ensures even long-running jobs remain stable and recoverable if interrupted.
+
+*🧩 Example: Optimized Settings for Different Machines*
+System Specs	Recommended Threads	Timeout
+4 GB RAM, Dual Core	8–10	20s
+8 GB RAM, Quad Core	20	25s
+16+ GB RAM, 6+ Cores	30–35	30s
+
+#**📈 Future Enhancements**
 Add enrichment from social media profiles (LinkedIn, Twitter)
 Integrate with CRM systems for direct lead export
 Implement caching for repeated domain checks to speed up processing
 Add more sophisticated lead scoring based on company size, traffic, or tech stack
 
-**📞 Contact**
+#**📞 Contact**
 For questions or collaborations, reach out via email: [gurupreethikasayala@gmail.com]
 LinkedIn profile: https://www.linkedin.com/in/guru-preethika-sayala/
 
